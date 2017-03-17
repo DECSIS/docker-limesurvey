@@ -1,6 +1,8 @@
 LimeSurvey
 ==========
 
+Forked from danturner/limesurvey
+
 LimeSurvey - the most popular
 Free Open Source Software survey tool on the web.
 
@@ -20,7 +22,7 @@ To run limesurvey in 80 port just:
 1. Go to a browser and type http://localhost
 2. Click Next until you reach the *Database configuration* screen
 3. Then enter the following in the field:
-  - **Database type** *Post*
+  - **Database type** *PostgresSQL*
   - **Database location** *localhost*
   - **Database user** postgres*
   - **Database password**

@@ -1,15 +1,14 @@
-db:
-  image: 'mysql:latest'
-  environment:
-    - MYSQL_DATABASE=lime
-    - MYSQL_PASSWORD=654321
-    - MYSQL_ROOT_PASSWORD=123456
-    - MYSQL_USER=lime_user
-  expose:
-    - '3306'
-lime:
-  image: 'danturner/limesurvey:latest'
-  links:
-    - db
-  ports:
-    - '80:80'
+version: '2'
+services:
+  db:
+    image: 'postgres:9.6.2-alpine'
+    environment:
+      - POSTGRES_PASSWORD=654321
+    expose:
+      - '5432'
+  lime:
+    image: 'mariomourao/docker-limesurvey'
+    links:
+      - db
+    ports:
+      - '80:80'

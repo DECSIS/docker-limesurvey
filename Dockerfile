@@ -1,10 +1,14 @@
-FROM php:5.5-apache
-MAINTAINER dan.p.turner@gmail.com
+FROM php:7.1.2-apache     
 
-ENV DOWNLOAD_URL https://www.limesurvey.org/stable-release?download=1655:limesurvey250plus-build160430targz
+ENV DOWNLOAD_URL https://www.limesurvey.org/stable-release?download=2014:limesurvey2641%20170310targz   
 
-RUN docker-php-ext-install pdo pdo_mysql \
-    && apt-get update && apt-get install -y \
+RUN apt-get update
+
+# Install Postgre PDO
+RUN apt-get install -y libpq-dev \
+    && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
+    && docker-php-ext-install pdo pdo_pgsql pgsql \
+    && apt-get install -y \
         libfreetype6-dev \
         libjpeg62-turbo-dev \
         libmcrypt-dev \

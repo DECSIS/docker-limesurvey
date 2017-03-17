@@ -17,7 +17,7 @@ Prepared to connect with postgres database
 
 To run limesurvey in 80 port just:
 
-    docker run -d --name limesurvey -p 80:80 mmourao/docker-limesurvey:latest
+    docker run -d --name limesurvey -p 80:80 decsis/docker-limesurvey:latest
 
 1. Go to a browser and type http://localhost
 2. Click Next until you reach the *Database configuration* screen
@@ -44,7 +44,7 @@ You can use docker compose to automate the above command if you create a file ca
 	    expose:
 	      - '5432'
 	  lime:
-	    image: 'mariomourao/docker-limesurvey'
+	    image: 'decsis/docker-limesurvey'
 	    links:
 	      - db
 	    ports:
